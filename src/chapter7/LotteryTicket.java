@@ -32,6 +32,12 @@ public class LotteryTicket {
     }
     public static boolean search(int[] array, int numberToSearchFor) {
 
+        for(int value : array) {
+            if(value == numberToSearchFor) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void printTicket(int ticket[]){
