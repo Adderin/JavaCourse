@@ -20,10 +20,18 @@ public class LotteryTicket {
         Random random = new Random();
 
         for(int i=0; i<LENGTH; i++){
-            ticket[i] = random.nextInt(MAX_TICKET_NUMBER) + 1;
+            int randomNumber;
+
+            do {
+                 randomNumber = random.nextInt(MAX_TICKET_NUMBER) + 1;
+            }while (search(ticket, randomNumber));
+            ticket[i] = randomNumber;
           }
 
     return ticket;
+    }
+    public static boolean search(int[] array, int numberToSearchFor) {
+
     }
 
     public static void printTicket(int ticket[]){
