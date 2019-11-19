@@ -56,7 +56,7 @@ public class LotteryTicket {
 
     public static boolean binarySearch(int[] array, int numberToSearchFor){
 
-        // To do binary - array must be sorted first
+        // To do binary - array must be sorted
         Arrays.sort(array);
 
         int index = Arrays.binarySearch(array, numberToSearchFor);
