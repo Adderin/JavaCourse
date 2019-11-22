@@ -13,13 +13,23 @@ public class Grades {
         grades = new int[scanner.nextInt()];
 
         getGrades();
+        System.out.println("Average: " + String.format("%.2f", calculateAvg()));
     }
 
     public static void getGrades(){
         for(int i=0; i < grades.length; i++) {
             System.out.println("Enter grade #" + (i+1));
             grades[i] = scanner.nextInt();
-
         }
+    }
+    public static int calculateSum(){
+        int sum = 0;
+        for(int grade: grades){
+            sum = sum + grade;
+        }
+        return sum;
+    }
+    public static double calculateAvg(){
+        return calculateSum()/grades.length;
     }
 }
