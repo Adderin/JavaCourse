@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Grades {
 
     private static int grades[];
-    private static Scanner scanner = new Scanner();
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -14,6 +14,8 @@ public class Grades {
 
         getGrades();
         System.out.println("Average: " + String.format("%.2f", calculateAvg()));
+        System.out.println("Highest: " + getHighest());
+        System.out.println("Lowest: " + getLowest());
     }
 
     public static void getGrades(){
@@ -31,5 +33,23 @@ public class Grades {
     }
     public static double calculateAvg(){
         return calculateSum()/grades.length;
+    }
+    public static int getHighest(){
+        int highest = grades[0];
+        for(int grade: grades){
+            if(grade > highest){
+                highest = grade;
+            }
+        }
+        return highest;
+    }
+    public static int getLowest(){
+        int lowest = grades[0];
+        for(int grade: grades){
+            if(grade < lowest){
+                lowest = grade;
+            }
+        }
+        return lowest;
     }
 }
