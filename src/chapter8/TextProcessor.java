@@ -11,7 +11,7 @@ public class TextProcessor {
         String sentence = scanner.nextLine();
         scanner.close();
         countWords(sentence);
-        //reverseString(sentence);
+        reverseString(sentence);
     }
 
     /**
@@ -31,9 +31,16 @@ public class TextProcessor {
             System.out.print(words[i]+',');
         }
     }
-    /*public static String getText(){
 
-        }*/
-
+    /**
+     * Print a given string in reverse order
+     * @param string String to reverse
+     */
+    public static void reverseString(String string) {
+        System.out.println("\nYour reversed sentence is: ");
+        for(int i=string.length()-1; i>=0;i--){
+            System.out.print(string.charAt(i));
+        }
     }
+}
 
