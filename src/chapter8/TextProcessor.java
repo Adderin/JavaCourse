@@ -4,14 +4,35 @@ import java.util.Scanner;
 
 public class TextProcessor {
 
-    private static Scanner scanner = new Scanner(System.in);
+    public static String sentence;
 
     public static void main(String[] args){
-        System.out.println("Please write your sentence below:");
-        String sentence = scanner.nextLine();
+        System.out.println("Please write your jumbled sentence below:");
+        Scanner scanner = new Scanner(System.in);
+        sentence = scanner.nextLine();
         scanner.close();
-        countWords(sentence);
-        reverseString(sentence);
+        String str = addSpaces(sentence);
+        countWords(str);
+        reverseString(str);
+    }
+
+    /**
+     * Adds spaces before each uppercase letter
+     * @param string jumbled text
+     */
+    private static String addSpaces(String string) {
+
+        var modifiedText = new StringBuilder(string);
+
+        for(int i = 0; i < modifiedText.length(); i++){
+            if(i!=0 && Character.isUpperCase(modifiedText.charAt(i))){
+                modifiedText.insert(i, " ");
+                i++;
+            }
+        }
+        var str = modifiedText.toString();
+        return str;
+        //System.out.println(modifiedText);
     }
 
     /**
@@ -24,7 +45,7 @@ public class TextProcessor {
         var words = string.split(" ");
         int numberOfwords = words.length;
 
-        String message = String.format("Your sentence contains %d words", numberOfwords);
+        String message = String.format("Your sentence \'%s\' contains %d words", addSpaces(sentence), numberOfwords);
         System.out.println(message);
 
         for(int i = 0; i < numberOfwords; i++){
