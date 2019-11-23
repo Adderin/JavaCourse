@@ -1,9 +1,17 @@
 package chapter8;
 
+import java.util.Scanner;
+
 public class TextProcessor {
 
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args){
-        countWords("I love my University");
+        System.out.println("Please write your sentence below:");
+        String sentence = scanner.nextLine();
+        scanner.close();
+        countWords(sentence);
+        //reverseString(sentence);
     }
 
     /**
@@ -23,4 +31,9 @@ public class TextProcessor {
             System.out.print(words[i]+',');
         }
     }
-}
+    /*public static String getText(){
+
+        }*/
+
+    }
+
