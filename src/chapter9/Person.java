@@ -6,6 +6,10 @@ public class Person {
     private int age;
     private String gender;
 
+    public Person(String name){
+        System.out.println("Second constructor in Person. Name %s is set");
+    }
+
     public String getName() {
         return name;
     }
