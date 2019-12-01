@@ -6,7 +6,7 @@ public interface Product {
     void setPrice(double price);
 
     String getName();
-    void setName();
+    void setName(String name);
 
     String getColor();
     void setColor(String color);
