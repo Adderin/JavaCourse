@@ -6,10 +6,10 @@ import java.util.*;
 public class CollectionDemo {
 
     public static void main(String[] args){
-        setDemo();
+        //setDemo();
         //listDemo();
         //queueDemo();
-        //mapDemo();
+        mapDemo();
     }
 
     public static void setDemo(){
@@ -64,43 +64,31 @@ public class CollectionDemo {
     }
 
     public static void mapDemo(){
-        Map fruitCalories = new HashMap();
+        Map<String, Integer> fruitCalories = new HashMap();
         fruitCalories.put("apple", 95);
         fruitCalories.put("lemon", 20);
         fruitCalories.put("banana", 105);
         fruitCalories.put("orange", 45);
         fruitCalories.put("lemon", 17);
 
-        System.out.println(fruitCalories.size()); //4
-        System.out.println(fruitCalories); //{banana=105, orange=45, apple=95, lemon=17}
+//        System.out.println(fruitCalories.size()); //4
+//        System.out.println(fruitCalories); //{banana=105, orange=45, apple=95, lemon=17}
+//
+//        System.out.println(fruitCalories.get("lemon"));//17
+//
+//        System.out.println(fruitCalories.entrySet());//[banana=105, orange=45, apple=95, lemon=17]
+//
+//        fruitCalories.remove("orange");
+//        System.out.println(fruitCalories);//{banana=105, apple=95, lemon=17}
 
-        System.out.println(fruitCalories.get("lemon"));//17
-
-        System.out.println(fruitCalories.entrySet());//[banana=105, orange=45, apple=95, lemon=17]
-
-        fruitCalories.remove("orange");
-        System.out.println(fruitCalories);//{banana=105, apple=95, lemon=17}
-    }
-
-    public void print(Collection<String> collection){
-        var i = collection.iterator();
-        while(i.hasNext()){
-            System.out.println(i.next());
+        for(var entry: fruitCalories.entrySet()){
+            System.out.println(entry.getValue());       //This will print values only
         }
 
-        for(String item : collection){
-            System.out.println(item);
-        }
+        fruitCalories.forEach(
+                (k,v) ->  System.out.println("Fruit: " + k + ", Calories: " + v)); //This will print keys and values
 
-        collection.forEach(System.out::println);
     }
 
-    public void print(Map<String, Integer> map){
-        for(var entry : map.entrySet()){
-            System.out.println(entry.getValue());
-        }
 
-        map.forEach(
-                (k,v)->System.out.println("Fruit: " + k + ", Calories: " + v));
-    }
 }
