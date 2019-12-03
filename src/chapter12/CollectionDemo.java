@@ -1,5 +1,6 @@
 package chapter12;
 
+import java.text.MessageFormat;
 import java.util.*;
 
 public class CollectionDemo {
@@ -12,7 +13,7 @@ public class CollectionDemo {
     }
 
     public static void setDemo(){
-        Set fruit = new HashSet();
+        Set<String> fruit = new HashSet();
         fruit.add("apple");
         fruit.add("lemon");
         fruit.add("banana");
@@ -24,8 +25,12 @@ public class CollectionDemo {
 
         var i = fruit.iterator();
         while(i.hasNext()){
-            System.out.print(i.next()+" ");
+            System.out.print(i.next()+" ");  //Showing SET elements: method 1
         }
+        for(String item: fruit){        //Showing SET elements: method 2
+            System.out.println(item);   //Used generics to implement
+        }
+        fruit.forEach(System.out::println);     //Showing SET elements: method 3
     }
 
     public static void listDemo(){
