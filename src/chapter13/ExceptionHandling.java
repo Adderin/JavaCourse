@@ -1,7 +1,6 @@
 package chapter13;
 
 import java.io.File;
-import java.io.IOException;
 
 public class ExceptionHandling {
     public static void main(String[] args) {
@@ -13,7 +12,7 @@ public class ExceptionHandling {
         File file = new File("resources/nonexist.txt");
         try {
             file.createNewFile();
-        }catch (IOException e) {
+        }catch (Exception e) {
             System.out.println("Directory does not exist");
             e.printStackTrace();
         }
