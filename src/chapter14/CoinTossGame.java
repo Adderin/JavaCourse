@@ -2,6 +2,7 @@ package chapter14;
 
 import java.util.Objects;
 import java.util.Scanner;
+import java.lang.String;
 
 public class CoinTossGame {
 
@@ -13,7 +14,7 @@ public class CoinTossGame {
         game.scanner = new Scanner(System.in);
 
         Player player1 = new Player(game.askName());
-        player1.setGuess(game.askGuess());
+        player1.setGuess(game.askGuess(player1.getName()));
 
         Player player2 = new Player(game.askName());
         if(player1.getGuess().equalsIgnoreCase(Coin.HEADS)){
@@ -41,13 +42,13 @@ public class CoinTossGame {
         game.scanner.close();
     }
     private String askName(){
-        System.out.println("Введите свое имя, игрок"+count+": ");
+        System.out.println("Введите свое имя, игрок#"+count+": ");
         count++;
         return scanner.nextLine();
     }
 
-    private String askGuess(){
-        System.out.println("Какой у вас выбор: Орел или Решка?");
+    private String askGuess(String name){
+        System.out.printf("Что выбираешь, %s: Орел или Решка?\n",name);
         String choice = scanner.nextLine();
         while (!Objects.equals(choice, Coin.HEADS) && !Objects.equals(choice, Coin.TAILS)) {
             System.out.println("Ошибка. Введите Орел или Решка: ");
