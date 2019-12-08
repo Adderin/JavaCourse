@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class CoinTossGame {
 
     private Scanner scanner;
+    int count = 1;
 
     public static void main(String[] args) throws InterruptedException {
         CoinTossGame game = new CoinTossGame();
@@ -29,22 +30,24 @@ public class CoinTossGame {
 
         Coin coin = new Coin();
         coin.flip();
-        System.out.println("\nВыпала " + coin.getSide());
+        if(coin.getSide().equals("Орел")){
+            System.out.println("\nВыпал " + coin.getSide());
+        }
+        else System.out.println("\nВыпала " + coin.getSide());
         Thread.sleep(2000);
 
         game.determineWinner(player1, player2, coin);
 
-
         game.scanner.close();
-
     }
     private String askName(){
-        System.out.println("Введите свое имя: ");
+        System.out.println("Введите свое имя, игрок"+count+": ");
+        count++;
         return scanner.nextLine();
     }
 
     private String askGuess(){
-        System.out.println("Введите Орел или Решка: ");
+        System.out.println("Какой у вас выбор: Орел или Решка?");
         String choice = scanner.nextLine();
         while (!Objects.equals(choice, Coin.HEADS) && !Objects.equals(choice, Coin.TAILS)) {
             System.out.println("Ошибка. Введите Орел или Решка: ");
